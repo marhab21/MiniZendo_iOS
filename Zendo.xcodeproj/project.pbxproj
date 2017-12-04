@@ -7,21 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A33ABD01FD4F22E0087111C /* zenLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A33ABCD1FD4F22E0087111C /* zenLogo.png */; };
+		5A33ABD11FD4F22E0087111C /* garden.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A33ABCE1FD4F22E0087111C /* garden.jpg */; };
+		5A33ABD21FD4F22E0087111C /* zen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A33ABCF1FD4F22E0087111C /* zen.png */; };
+		5A33ABD51FD4F3150087111C /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A33ABD41FD4F3150087111C /* bell.mp3 */; };
+		5A44F84F1FD4CC78009691A9 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F84E1FD4CC78009691A9 /* SessionViewController.swift */; };
+		5A44F8511FD4CDAE009691A9 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F8501FD4CDAE009691A9 /* SoundPlayer.swift */; };
 		5A9E79CC1FD22B09008D5E89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79CB1FD22B09008D5E89 /* AppDelegate.swift */; };
-		5A9E79CE1FD22B09008D5E89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79CD1FD22B09008D5E89 /* ViewController.swift */; };
+		5A9E79CE1FD22B09008D5E89 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79CD1FD22B09008D5E89 /* ListViewController.swift */; };
 		5A9E79D11FD22B09008D5E89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E79CF1FD22B09008D5E89 /* Main.storyboard */; };
 		5A9E79D31FD22B09008D5E89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E79D21FD22B09008D5E89 /* Assets.xcassets */; };
 		5A9E79D61FD22B09008D5E89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E79D41FD22B09008D5E89 /* LaunchScreen.storyboard */; };
+		5A9E79E41FD22BD1008D5E89 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79E31FD22BD1008D5E89 /* Constants.swift */; };
+		5A9E79E61FD22C51008D5E89 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79E51FD22C51008D5E89 /* Session.swift */; };
+		5A9E79E81FD231B2008D5E89 /* SessionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79E71FD231B2008D5E89 /* SessionEngine.swift */; };
+		5A9E79EB1FD2334F008D5E89 /* UserAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79EA1FD2334F008D5E89 /* UserAlerts.swift */; };
+		5A9E79ED1FD2397D008D5E89 /* AddSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79EC1FD2397D008D5E89 /* AddSessionViewController.swift */; };
+		5A9E79F11FD24433008D5E89 /* SessionListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79F01FD24433008D5E89 /* SessionListViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A33ABCD1FD4F22E0087111C /* zenLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zenLogo.png; path = Zendo/Images/zenLogo.png; sourceTree = SOURCE_ROOT; };
+		5A33ABCE1FD4F22E0087111C /* garden.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = garden.jpg; path = Zendo/Images/garden.jpg; sourceTree = SOURCE_ROOT; };
+		5A33ABCF1FD4F22E0087111C /* zen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zen.png; path = Zendo/Images/zen.png; sourceTree = SOURCE_ROOT; };
+		5A33ABD41FD4F3150087111C /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bell.mp3; path = Zendo/Sounds/bell.mp3; sourceTree = SOURCE_ROOT; };
+		5A44F84E1FD4CC78009691A9 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		5A44F8501FD4CDAE009691A9 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		5A9E79C81FD22B09008D5E89 /* Zendo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zendo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9E79CB1FD22B09008D5E89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5A9E79CD1FD22B09008D5E89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5A9E79CD1FD22B09008D5E89 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		5A9E79D01FD22B09008D5E89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A9E79D21FD22B09008D5E89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A9E79D51FD22B09008D5E89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A9E79D71FD22B09008D5E89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A9E79E31FD22BD1008D5E89 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5A9E79E51FD22C51008D5E89 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		5A9E79E71FD231B2008D5E89 /* SessionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEngine.swift; sourceTree = "<group>"; };
+		5A9E79EA1FD2334F008D5E89 /* UserAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlerts.swift; sourceTree = "<group>"; };
+		5A9E79EC1FD2397D008D5E89 /* AddSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSessionViewController.swift; sourceTree = "<group>"; };
+		5A9E79F01FD24433008D5E89 /* SessionListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionListViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +59,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A33ABCC1FD4F2080087111C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5A33ABCE1FD4F22E0087111C /* garden.jpg */,
+				5A33ABCF1FD4F22E0087111C /* zen.png */,
+				5A33ABCD1FD4F22E0087111C /* zenLogo.png */,
+			);
+			name = Images;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		5A33ABD31FD4F2E30087111C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5A33ABD41FD4F3150087111C /* bell.mp3 */,
+			);
+			name = Sounds;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		5A9E79BF1FD22B09008D5E89 = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +98,64 @@
 		5A9E79CA1FD22B09008D5E89 /* Zendo */ = {
 			isa = PBXGroup;
 			children = (
+				5A33ABD31FD4F2E30087111C /* Sounds */,
+				5A33ABCC1FD4F2080087111C /* Images */,
+				5A9E79E91FD2332E008D5E89 /* Utils */,
+				5A9E79E21FD22BB9008D5E89 /* Strings */,
+				5A9E79E11FD22B50008D5E89 /* Views */,
+				5A9E79E01FD22B46008D5E89 /* Engines */,
+				5A9E79DD1FD22B22008D5E89 /* ViewControllers */,
 				5A9E79CB1FD22B09008D5E89 /* AppDelegate.swift */,
-				5A9E79CD1FD22B09008D5E89 /* ViewController.swift */,
 				5A9E79CF1FD22B09008D5E89 /* Main.storyboard */,
 				5A9E79D21FD22B09008D5E89 /* Assets.xcassets */,
 				5A9E79D41FD22B09008D5E89 /* LaunchScreen.storyboard */,
 				5A9E79D71FD22B09008D5E89 /* Info.plist */,
 			);
 			path = Zendo;
+			sourceTree = "<group>";
+		};
+		5A9E79DD1FD22B22008D5E89 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5A9E79CD1FD22B09008D5E89 /* ListViewController.swift */,
+				5A9E79EC1FD2397D008D5E89 /* AddSessionViewController.swift */,
+				5A44F84E1FD4CC78009691A9 /* SessionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5A9E79E01FD22B46008D5E89 /* Engines */ = {
+			isa = PBXGroup;
+			children = (
+				5A9E79E51FD22C51008D5E89 /* Session.swift */,
+				5A9E79E71FD231B2008D5E89 /* SessionEngine.swift */,
+			);
+			path = Engines;
+			sourceTree = "<group>";
+		};
+		5A9E79E11FD22B50008D5E89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A9E79F01FD24433008D5E89 /* SessionListViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5A9E79E21FD22BB9008D5E89 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				5A9E79E31FD22BD1008D5E89 /* Constants.swift */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		5A9E79E91FD2332E008D5E89 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5A9E79EA1FD2334F008D5E89 /* UserAlerts.swift */,
+				5A44F8501FD4CDAE009691A9 /* SoundPlayer.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +217,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A33ABD11FD4F22E0087111C /* garden.jpg in Resources */,
 				5A9E79D61FD22B09008D5E89 /* LaunchScreen.storyboard in Resources */,
 				5A9E79D31FD22B09008D5E89 /* Assets.xcassets in Resources */,
+				5A33ABD51FD4F3150087111C /* bell.mp3 in Resources */,
+				5A33ABD21FD4F22E0087111C /* zen.png in Resources */,
+				5A33ABD01FD4F22E0087111C /* zenLogo.png in Resources */,
 				5A9E79D11FD22B09008D5E89 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,8 +234,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A9E79CE1FD22B09008D5E89 /* ViewController.swift in Sources */,
+				5A44F8511FD4CDAE009691A9 /* SoundPlayer.swift in Sources */,
+				5A9E79E81FD231B2008D5E89 /* SessionEngine.swift in Sources */,
+				5A9E79ED1FD2397D008D5E89 /* AddSessionViewController.swift in Sources */,
+				5A9E79E61FD22C51008D5E89 /* Session.swift in Sources */,
+				5A44F84F1FD4CC78009691A9 /* SessionViewController.swift in Sources */,
+				5A9E79CE1FD22B09008D5E89 /* ListViewController.swift in Sources */,
 				5A9E79CC1FD22B09008D5E89 /* AppDelegate.swift in Sources */,
+				5A9E79E41FD22BD1008D5E89 /* Constants.swift in Sources */,
+				5A9E79EB1FD2334F008D5E89 /* UserAlerts.swift in Sources */,
+				5A9E79F11FD24433008D5E89 /* SessionListViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
