@@ -19,7 +19,7 @@ class Session {
     init(durationInSeconds: Int, UUID: String) {
         self.durationInSeconds = durationInSeconds
         displayDuration = durationInSeconds / 60
-        self.title = "Time: \(displayDuration)"
+        self.title = "Time set at \(displayDuration) minutes"
         self.UUID = UUID
     }
     

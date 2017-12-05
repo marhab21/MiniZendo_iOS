@@ -33,7 +33,7 @@
 		5A33ABD41FD4F3150087111C /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bell.mp3; path = Zendo/Sounds/bell.mp3; sourceTree = SOURCE_ROOT; };
 		5A44F84E1FD4CC78009691A9 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		5A44F8501FD4CDAE009691A9 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
-		5A9E79C81FD22B09008D5E89 /* Zendo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zendo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A9E79C81FD22B09008D5E89 /* Mini Zendo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini Zendo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9E79CB1FD22B09008D5E89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A9E79CD1FD22B09008D5E89 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		5A9E79D01FD22B09008D5E89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,8 +66,7 @@
 				5A33ABCF1FD4F22E0087111C /* zen.png */,
 				5A33ABCD1FD4F22E0087111C /* zenLogo.png */,
 			);
-			name = Images;
-			path = "New Group";
+			path = Images;
 			sourceTree = "<group>";
 		};
 		5A33ABD31FD4F2E30087111C /* Sounds */ = {
@@ -75,8 +74,7 @@
 			children = (
 				5A33ABD41FD4F3150087111C /* bell.mp3 */,
 			);
-			name = Sounds;
-			path = "New Group";
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		5A9E79BF1FD22B09008D5E89 = {
@@ -90,7 +88,7 @@
 		5A9E79C91FD22B09008D5E89 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A9E79C81FD22B09008D5E89 /* Zendo.app */,
+				5A9E79C81FD22B09008D5E89 /* Mini Zendo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,9 +159,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5A9E79C71FD22B09008D5E89 /* Zendo */ = {
+		5A9E79C71FD22B09008D5E89 /* Mini Zendo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A9E79DA1FD22B09008D5E89 /* Build configuration list for PBXNativeTarget "Zendo" */;
+			buildConfigurationList = 5A9E79DA1FD22B09008D5E89 /* Build configuration list for PBXNativeTarget "Mini Zendo" */;
 			buildPhases = (
 				5A9E79C41FD22B09008D5E89 /* Sources */,
 				5A9E79C51FD22B09008D5E89 /* Frameworks */,
@@ -173,9 +171,9 @@
 			);
 			dependencies = (
 			);
-			name = Zendo;
+			name = "Mini Zendo";
 			productName = Zendo;
-			productReference = 5A9E79C81FD22B09008D5E89 /* Zendo.app */;
+			productReference = 5A9E79C81FD22B09008D5E89 /* Mini Zendo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -194,7 +192,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5A9E79C31FD22B09008D5E89 /* Build configuration list for PBXProject "Zendo" */;
+			buildConfigurationList = 5A9E79C31FD22B09008D5E89 /* Build configuration list for PBXProject "Mini Zendo" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -207,7 +205,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5A9E79C71FD22B09008D5E89 /* Zendo */,
+				5A9E79C71FD22B09008D5E89 /* Mini Zendo */,
 			);
 		};
 /* End PBXProject section */
@@ -409,7 +407,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5A9E79C31FD22B09008D5E89 /* Build configuration list for PBXProject "Zendo" */ = {
+		5A9E79C31FD22B09008D5E89 /* Build configuration list for PBXProject "Mini Zendo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A9E79D81FD22B09008D5E89 /* Debug */,
@@ -418,7 +416,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A9E79DA1FD22B09008D5E89 /* Build configuration list for PBXNativeTarget "Zendo" */ = {
+		5A9E79DA1FD22B09008D5E89 /* Build configuration list for PBXNativeTarget "Mini Zendo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A9E79DB1FD22B09008D5E89 /* Debug */,

@@ -10,6 +10,9 @@ import UIKit
 
 class SessionViewController: UIViewController {
     
+    
+    @IBOutlet weak var quotedText: UITextView!
+    
     var currentSession: Session?
     
     let timeLeftShapeLayer = CAShapeLayer()
@@ -18,6 +21,7 @@ class SessionViewController: UIViewController {
     var endTime: Date?
     var timeLabel =  UILabel()
     var timer = Timer()
+    var doneTimer = Timer()
     // here you create your basic animation object to animate the strokeEnd
     let strokeIt = CABasicAnimation(keyPath: "strokeEnd")
     
@@ -25,6 +29,7 @@ class SessionViewController: UIViewController {
         super.viewDidLoad()
         // Only if the current session has come through
         timeLeft = Double((currentSession?.durationInSeconds)!)
+        
         
         view.backgroundColor = UIColor(white: 0.94, alpha: 1.0)
         drawBgShape()
@@ -40,17 +45,18 @@ class SessionViewController: UIViewController {
         // define the future end time by adding the timeLeft to now Date()
         endTime = Date().addingTimeInterval(timeLeft)
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        SoundPlayer.playCustomSound()
     }
     
     func addTimeLabel() {
-        timeLabel = UILabel(frame: CGRect(x: view.frame.midX-50 ,y: view.frame.midY-25, width: 100, height: 50))
+        timeLabel = UILabel(frame: CGRect(x: view.frame.midX-180 ,y: view.frame.midY + 255, width: 100, height: 50))
         timeLabel.textAlignment = .center
         timeLabel.text = timeLeft.time
         view.addSubview(timeLabel)
     }
     
     func drawBgShape() {
-        bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX , y: view.frame.midY), radius:
+        bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX - 130 , y: view.frame.midY + 280), radius:
             50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         bgShapeLayer.strokeColor = UIColor.white.cgColor
         bgShapeLayer.fillColor = UIColor.clear.cgColor
@@ -60,7 +66,7 @@ class SessionViewController: UIViewController {
     
     
     func drawTimeLeftShape() {
-        timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX , y: view.frame.midY), radius:
+        timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX - 130 , y: view.frame.midY + 280), radius:
             50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         // timeLeftShapeLayer.strokeColor = UIColor.red.cgColor
         timeLeftShapeLayer.strokeColor = UIColor.gray.cgColor
@@ -78,13 +84,18 @@ class SessionViewController: UIViewController {
         } else {
             SoundPlayer.playCustomSound()
             
-            Utility.showAlertBox("Back to the World!", msg: (currentSession?.addMessage())!, view: self , move: true)
+            quotedText.text = currentSession?.addMessage()
             timeLabel.text = "00:00"
             timer.invalidate()
+            doneTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(moveOn), userInfo: nil, repeats: false)
         }
     }
     
-    
+     @objc func moveOn() {
+        doneTimer.invalidate()
+        let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
+        navigationController.popToRootViewController(animated: true)
+    }
     
     /*
      // MARK: - Navigation

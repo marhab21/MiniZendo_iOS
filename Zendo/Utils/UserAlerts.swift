@@ -33,7 +33,7 @@ class Utility {
         let alert = UIAlertController(title: alert, message: msg, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(moveOnAction)
         DispatchQueue.main.async {
-            view.present(alert, animated: true, completion: nil)
+            view.parent?.present(alert, animated: true, completion: nil)
         }
     }
     
