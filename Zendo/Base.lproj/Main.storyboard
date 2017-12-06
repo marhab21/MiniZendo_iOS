@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q7n-mP-WHW">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,21 +19,21 @@
         <!--Session List-->
         <scene sceneID="i5C-z1-5C4">
             <objects>
-                <tableViewController title="Session List" id="81U-Dh-N3d" customClass="ListViewController" customModule="Zendo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Session List" id="81U-Dh-N3d" customClass="ListViewController" customModule="Mini_Zendo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="9" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pzb-r9-u9B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sessionCell" id="bY5-i0-jFE" customClass="SessionListViewCell" customModule="Zendo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sessionCell" id="bY5-i0-jFE" customClass="SessionListViewCell" customModule="Mini_Zendo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bY5-i0-jFE" id="7IH-CX-Ik9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zen.png" translatesAutoresizingMaskIntoConstraints="NO" id="9ca-OL-CbD">
-                                            <rect key="frame" x="16" y="-3.5" width="59" height="50"/>
+                                            <rect key="frame" x="16" y="-4" width="59" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="UTA-iL-hZ6"/>
                                                 <constraint firstAttribute="height" constant="50" id="cNe-0R-5HT"/>
@@ -41,7 +41,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQI-jk-XfP">
-                                            <rect key="frame" x="114" y="9" width="218" height="25.5"/>
+                                            <rect key="frame" x="83" y="9" width="221" height="26"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -50,12 +50,10 @@
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.92053724315068497" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="9ca-OL-CbD" firstAttribute="leading" secondItem="7IH-CX-Ik9" secondAttribute="leading" constant="16" id="3hM-Wc-AzK"/>
-                                        <constraint firstItem="NQI-jk-XfP" firstAttribute="leading" secondItem="9ca-OL-CbD" secondAttribute="trailing" constant="39" id="9qW-rp-Ute"/>
+                                        <constraint firstItem="NQI-jk-XfP" firstAttribute="leading" secondItem="9ca-OL-CbD" secondAttribute="trailing" constant="8" symbolic="YES" id="8bp-kZ-4SS"/>
                                         <constraint firstItem="9ca-OL-CbD" firstAttribute="centerY" secondItem="7IH-CX-Ik9" secondAttribute="centerY" id="Bof-Pe-55g"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="NQI-jk-XfP" secondAttribute="trailing" constant="27" id="Z9f-KE-6Rz"/>
-                                        <constraint firstItem="NQI-jk-XfP" firstAttribute="centerY" secondItem="7IH-CX-Ik9" secondAttribute="centerY" id="aN6-sV-O8M"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="NQI-jk-XfP" secondAttribute="trailing" constant="27" id="h0S-rg-F7X"/>
-                                        <constraint firstItem="NQI-jk-XfP" firstAttribute="leading" secondItem="9ca-OL-CbD" secondAttribute="trailing" constant="39" id="yEf-31-fLk"/>
+                                        <constraint firstItem="NQI-jk-XfP" firstAttribute="trailing" secondItem="7IH-CX-Ik9" secondAttribute="trailingMargin" id="Hht-pZ-AH9"/>
+                                        <constraint firstItem="NQI-jk-XfP" firstAttribute="centerY" secondItem="7IH-CX-Ik9" secondAttribute="centerY" id="hUy-h2-Gcb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -83,21 +81,21 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="siY-AE-1XU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="22.5" y="66.5"/>
+            <point key="canvasLocation" x="22.5" y="66.25"/>
         </scene>
         <!--Session-->
         <scene sceneID="2bK-3x-fcB">
             <objects>
-                <viewController title="Session" id="B3a-iP-75Y" customClass="SessionViewController" customModule="Zendo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Session" id="B3a-iP-75Y" customClass="SessionViewController" customModule="Mini_Zendo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xbl-CW-P9D">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="garden.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="yPZ-uH-gSM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LBf-OD-IIX">
-                                <rect key="frame" x="44" y="31" width="287" height="408"/>
+                                <rect key="frame" x="44" y="31" width="232" height="221"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="28"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -127,16 +125,16 @@
         <!--Add Session View Controller-->
         <scene sceneID="k5i-wU-lgR">
             <objects>
-                <viewController id="39g-Kr-GfF" customClass="AddSessionViewController" customModule="Zendo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="39g-Kr-GfF" customClass="AddSessionViewController" customModule="Mini_Zendo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pH8-Ct-BW7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5L6-2h-SE4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="M1L-1o-4dr">
-                                        <rect key="frame" x="36" y="149" width="304" height="162"/>
+                                        <rect key="frame" x="36" y="149" width="249" height="162"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="162" id="A2d-2c-VK8"/>
                                         </constraints>
@@ -145,7 +143,7 @@
                                         </date>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofU-E2-I4l">
-                                        <rect key="frame" x="27" y="435" width="320" height="39"/>
+                                        <rect key="frame" x="27" y="248" width="265" height="39"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="39" id="C4t-Yq-Qgb"/>
@@ -172,7 +170,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Sitting Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyg-cj-aB1">
-                                <rect key="frame" x="102" y="48" width="171" height="26"/>
+                                <rect key="frame" x="74.5" y="48" width="171" height="26"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -204,7 +202,7 @@
             <objects>
                 <navigationController id="q7n-mP-WHW" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wEi-cE-vzP">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -221,6 +219,7 @@
         <image name="zen.png" width="76" height="76"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ais-p3-VhM"/>
         <segue reference="Tk0-Yt-bbY"/>
     </inferredMetricsTieBreakers>
 </document>

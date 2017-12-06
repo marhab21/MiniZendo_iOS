@@ -19,8 +19,37 @@ class Session {
     init(durationInSeconds: Int, UUID: String) {
         self.durationInSeconds = durationInSeconds
         displayDuration = durationInSeconds / 60
-        self.title = "Time set at \(displayDuration) minutes"
+        
         self.UUID = UUID
+        self.title = getTimeDisplay()
+    }
+    
+    func getTimeDisplay() -> String {
+        
+        var hrText = "hour"
+        var minText = "minutes"
+        var totalText = ""
+        
+        let minutes = displayDuration
+        
+        let hours = minutes / 60
+        let mins = minutes % 60
+        // Formatting
+        if (hours > 0) {
+            if (hours > 1) {
+                hrText = "hours"
+            }
+            totalText = "\(hours) \(hrText), "
+        } else {
+            totalText = ""
+        }
+        
+        if (minutes == 1) {
+            minText = "minute"
+        }
+        
+        totalText += "\(mins) \(minText)"
+        return totalText
     }
     
     

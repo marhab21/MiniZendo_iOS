@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class SessionViewController: UIViewController {
     
     
@@ -30,6 +32,9 @@ class SessionViewController: UIViewController {
         // Only if the current session has come through
         timeLeft = Double((currentSession?.durationInSeconds)!)
         
+        // DEBUG
+        print(view.frame.minX)
+        print(view.frame.minY)
         
         view.backgroundColor = UIColor(white: 0.94, alpha: 1.0)
         drawBgShape()
@@ -38,7 +43,6 @@ class SessionViewController: UIViewController {
         // here you define the fromValue, toValue and duration of your animation
         strokeIt.fromValue = 0
         strokeIt.toValue = 1
-        // strokeIt.duration = 60
         strokeIt.duration = timeLeft
         // add the animation to your timeLeftShapeLayer
         timeLeftShapeLayer.add(strokeIt, forKey: nil)
@@ -49,14 +53,14 @@ class SessionViewController: UIViewController {
     }
     
     func addTimeLabel() {
-        timeLabel = UILabel(frame: CGRect(x: view.frame.midX-180 ,y: view.frame.midY + 255, width: 100, height: 50))
+        timeLabel = UILabel(frame: CGRect(x: view.frame.midX-130 ,y: view.frame.midY + 195, width: 100, height: 50))
         timeLabel.textAlignment = .center
         timeLabel.text = timeLeft.time
         view.addSubview(timeLabel)
     }
     
     func drawBgShape() {
-        bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX - 130 , y: view.frame.midY + 280), radius:
+        bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX - 80 , y: view.frame.midY + 220), radius:
             50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         bgShapeLayer.strokeColor = UIColor.white.cgColor
         bgShapeLayer.fillColor = UIColor.clear.cgColor
@@ -66,7 +70,7 @@ class SessionViewController: UIViewController {
     
     
     func drawTimeLeftShape() {
-        timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX - 130 , y: view.frame.midY + 280), radius:
+        timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX - 80 , y: view.frame.midY + 220), radius:
             50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         // timeLeftShapeLayer.strokeColor = UIColor.red.cgColor
         timeLeftShapeLayer.strokeColor = UIColor.gray.cgColor
@@ -75,7 +79,28 @@ class SessionViewController: UIViewController {
         view.layer.addSublayer(timeLeftShapeLayer)
     }
     
-    
+  /*  func getDeviceType() -> ProgressCircle {
+        var circle: ProgressCircle?
+        
+        switch UIDevice.current.modelName {
+        case "iPhone 4":
+            print("IPHONE 4")
+        case "iPhone 5":
+            print("IPHONE 5")
+        case "iPhone 6,7,8":
+            print("IPHONE 678")
+            circle = ProgressCircle(lX: -180, lY: 255, cX: -130, cY: 280, view: self)
+        case "iPhone Plus":
+            print("IPHONE +")
+        case "iPhone X":
+            print("IPHONE X")
+        case "Simulator":
+            print("SIMULATOR")
+        default:
+            print("Unrecognized")
+        }
+        return circle
+    } */
     
     @objc func updateTime() {
         if timeLeft > 0 {
@@ -96,6 +121,8 @@ class SessionViewController: UIViewController {
         let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
         navigationController.popToRootViewController(animated: true)
     }
+    
+    
     
     /*
      // MARK: - Navigation

@@ -34,6 +34,7 @@ class AddSessionViewController: UIViewController {
         
             if (sessionList.count <= 10) {
                 let session = Session(durationInSeconds: Int(duration), UUID: UUID().uuidString)
+               // session.title = session.getTimeDisplay()
                 SessionEngine.sharedInstance.addItem(session)
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "listShouldRefresh"), object: self)
             }
