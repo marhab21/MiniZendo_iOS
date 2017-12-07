@@ -190,8 +190,11 @@ You can delete a session by swiping left</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCK-Rp-lAV">
-                                        <rect key="frame" x="34" y="302" width="252" height="30"/>
+                                        <rect key="frame" x="34" y="302" width="252" height="39"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="39" id="mej-IJ-3ED"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                         <state key="normal" title="SAVE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -220,16 +223,16 @@ You can delete a session by swiping left</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ybi-RV-WtI" firstAttribute="top" secondItem="5L6-2h-SE4" secondAttribute="top" constant="96" id="0gb-sw-XuN"/>
+                                    <constraint firstItem="oCK-Rp-lAV" firstAttribute="centerX" secondItem="7xu-Pn-BEK" secondAttribute="centerX" id="0l4-4G-x5c"/>
+                                    <constraint firstItem="oCK-Rp-lAV" firstAttribute="top" secondItem="7xu-Pn-BEK" secondAttribute="bottom" constant="22" id="4wi-wi-mBa"/>
                                     <constraint firstItem="7xu-Pn-BEK" firstAttribute="top" secondItem="ybi-RV-WtI" secondAttribute="bottom" constant="8" symbolic="YES" id="7jc-aQ-wno"/>
                                     <constraint firstItem="7xu-Pn-BEK" firstAttribute="leading" secondItem="5L6-2h-SE4" secondAttribute="leading" id="Bdo-Ah-gXt"/>
-                                    <constraint firstItem="oCK-Rp-lAV" firstAttribute="centerX" secondItem="7xu-Pn-BEK" secondAttribute="centerX" id="NdF-nP-qrG"/>
-                                    <constraint firstItem="oCK-Rp-lAV" firstAttribute="leading" secondItem="5L6-2h-SE4" secondAttribute="leading" constant="34" id="Rza-nD-RE3"/>
+                                    <constraint firstItem="LEz-Pw-ZoA" firstAttribute="top" secondItem="oCK-Rp-lAV" secondAttribute="bottom" constant="25" id="Ia7-YX-s5A"/>
+                                    <constraint firstItem="oCK-Rp-lAV" firstAttribute="leading" secondItem="5L6-2h-SE4" secondAttribute="leading" constant="34" id="Kgh-35-inL"/>
                                     <constraint firstAttribute="trailing" secondItem="7xu-Pn-BEK" secondAttribute="trailing" id="WN9-hd-v5e"/>
-                                    <constraint firstItem="oCK-Rp-lAV" firstAttribute="top" secondItem="7xu-Pn-BEK" secondAttribute="bottom" constant="22" id="Yfl-4k-brC"/>
-                                    <constraint firstItem="LEz-Pw-ZoA" firstAttribute="top" secondItem="oCK-Rp-lAV" secondAttribute="bottom" constant="34" id="eQl-LO-J0S"/>
                                     <constraint firstItem="7xu-Pn-BEK" firstAttribute="centerX" secondItem="5L6-2h-SE4" secondAttribute="centerX" id="ecP-N7-2Xw"/>
                                     <constraint firstItem="ybi-RV-WtI" firstAttribute="centerX" secondItem="5L6-2h-SE4" secondAttribute="centerX" id="htv-8O-LYR"/>
-                                    <constraint firstItem="oCK-Rp-lAV" firstAttribute="centerX" secondItem="LEz-Pw-ZoA" secondAttribute="centerX" id="jtI-Xd-Xsc"/>
+                                    <constraint firstItem="oCK-Rp-lAV" firstAttribute="centerX" secondItem="LEz-Pw-ZoA" secondAttribute="centerX" id="u60-Kh-1TR"/>
                                 </constraints>
                             </view>
                         </subviews>
