@@ -8,6 +8,52 @@
 
 import UIKit
 
+struct FormFactor {
+    var labelX, labelY: CGFloat
+    var circleX, circleY: CGFloat
+    
+    init() {
+        labelX = 0
+        labelY = 0
+        circleX = 0
+        circleY = 0
+    }
+    
+    init (labX: CGFloat, labY: CGFloat, cirX: CGFloat, cirY: CGFloat) {
+        labelX = labX
+        labelY = labY
+        circleX = cirX
+        circleY = cirY
+    }
+
+    
+    static func setDeviceType() -> FormFactor {
+        
+        var ff = FormFactor()
+        
+         switch UIDevice.current.modelName {
+         case "iPhone 5":
+            ff = FormFactor(labX: -130, labY: 195, cirX: -80, cirY: 220)
+         case "iPhone 6,7,8":
+            ff = FormFactor(labX: -170, labY: 235, cirX: -120, cirY: 260)
+         case "iPhone Plus":
+            ff = FormFactor(labX: -180, labY: 255, cirX: -130, cirY: 280)
+         case "iPhone X":
+            ff = FormFactor(labX: -170, labY: 255, cirX: -120, cirY: 280)
+         case "Simulator":
+            // iPhone 6 for simulator
+             ff = FormFactor(labX: -170, labY: 235, cirX: -120, cirY: 260)
+         default:
+            if (UIDevice.current.modelName.contains("iPad")) {
+               ff = FormFactor(labX: -330, labY: 395, cirX: -280, cirY: 420)
+            } else {
+                print("Mini Zendo not available for this device")
+            }
+         }
+        return ff
+    }
+}
+
 public extension UIDevice {
     var modelName: String {
         var systemInfo = utsname()

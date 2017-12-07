@@ -14,10 +14,12 @@ class AddSessionViewController: UIViewController {
     @IBOutlet weak var backView: UIView!
     
     @IBOutlet weak var timeSetter: UIDatePicker!
+    
     @IBOutlet weak var saveStartButton: UIButton!
     
     var sessionSaved = false
     var sessionList: [Session] = []
+    
     
     @IBAction func saveStartPressed(_ sender: UIButton) {
         
@@ -30,19 +32,18 @@ class AddSessionViewController: UIViewController {
         
         if (sessionSaved == false) {
             
-            let duration = timeSetter.countDownDuration 
-        
+            let duration = timeSetter.countDownDuration
+            
             if (sessionList.count <= 10) {
                 let session = Session(durationInSeconds: Int(duration), UUID: UUID().uuidString)
-               // session.title = session.getTimeDisplay()
                 SessionEngine.sharedInstance.addItem(session)
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "listShouldRefresh"), object: self)
+                goBackToList()
             }
         }
         
     }
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,9 +54,6 @@ class AddSessionViewController: UIViewController {
             timeSetter.date = date
         }
         
-    //    let date = dateFormatter.date(from: "0:00")
-        
-    //    timeSetter.date = date!
         timeSetter.stylizeView()
         
        sessionList = SessionEngine.sharedInstance.allItems()
@@ -64,16 +62,10 @@ class AddSessionViewController: UIViewController {
     }
 
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc func goBackToList() {
+        let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
+        navigationController.popToRootViewController(animated: true)
     }
-    */
 
 }
 

@@ -18,6 +18,7 @@ class ListViewController: UITableViewController {
     var selectedRow = -1
     
     
+    @IBOutlet weak var helpView: UITextView!
     @IBOutlet var listView: UITableView!
     
     override func viewDidLoad() {
@@ -56,7 +57,7 @@ class ListViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+          return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

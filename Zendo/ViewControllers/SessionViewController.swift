@@ -24,6 +24,7 @@ class SessionViewController: UIViewController {
     var timeLabel =  UILabel()
     var timer = Timer()
     var doneTimer = Timer()
+    var formFactor = FormFactor()
     // here you create your basic animation object to animate the strokeEnd
     let strokeIt = CABasicAnimation(keyPath: "strokeEnd")
     
@@ -32,9 +33,7 @@ class SessionViewController: UIViewController {
         // Only if the current session has come through
         timeLeft = Double((currentSession?.durationInSeconds)!)
         
-        // DEBUG
-        print(view.frame.minX)
-        print(view.frame.minY)
+        formFactor = FormFactor.setDeviceType()
         
         view.backgroundColor = UIColor(white: 0.94, alpha: 1.0)
         drawBgShape()
@@ -49,18 +48,24 @@ class SessionViewController: UIViewController {
         // define the future end time by adding the timeLeft to now Date()
         endTime = Date().addingTimeInterval(timeLeft)
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        SoundPlayer.playCustomSound()
+        SoundPlayer.playTestSound()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("View will disappear!")
+         timer.invalidate()
     }
     
     func addTimeLabel() {
-        timeLabel = UILabel(frame: CGRect(x: view.frame.midX-130 ,y: view.frame.midY + 195, width: 100, height: 50))
+        
+        timeLabel = UILabel(frame: CGRect(x: view.frame.midX + formFactor.labelX ,y: view.frame.midY + formFactor.labelY, width: 100, height: 50))
         timeLabel.textAlignment = .center
         timeLabel.text = timeLeft.time
         view.addSubview(timeLabel)
     }
     
     func drawBgShape() {
-        bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX - 80 , y: view.frame.midY + 220), radius:
+        bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX + formFactor.circleX , y: view.frame.midY + formFactor.circleY), radius:
             50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         bgShapeLayer.strokeColor = UIColor.white.cgColor
         bgShapeLayer.fillColor = UIColor.clear.cgColor
@@ -70,7 +75,7 @@ class SessionViewController: UIViewController {
     
     
     func drawTimeLeftShape() {
-        timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX - 80 , y: view.frame.midY + 220), radius:
+        timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX + formFactor.circleX , y: view.frame.midY + formFactor.circleY), radius:
             50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         // timeLeftShapeLayer.strokeColor = UIColor.red.cgColor
         timeLeftShapeLayer.strokeColor = UIColor.gray.cgColor
@@ -79,28 +84,6 @@ class SessionViewController: UIViewController {
         view.layer.addSublayer(timeLeftShapeLayer)
     }
     
-  /*  func getDeviceType() -> ProgressCircle {
-        var circle: ProgressCircle?
-        
-        switch UIDevice.current.modelName {
-        case "iPhone 4":
-            print("IPHONE 4")
-        case "iPhone 5":
-            print("IPHONE 5")
-        case "iPhone 6,7,8":
-            print("IPHONE 678")
-            circle = ProgressCircle(lX: -180, lY: 255, cX: -130, cY: 280, view: self)
-        case "iPhone Plus":
-            print("IPHONE +")
-        case "iPhone X":
-            print("IPHONE X")
-        case "Simulator":
-            print("SIMULATOR")
-        default:
-            print("Unrecognized")
-        }
-        return circle
-    } */
     
     @objc func updateTime() {
         if timeLeft > 0 {
@@ -121,18 +104,6 @@ class SessionViewController: UIViewController {
         let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
         navigationController.popToRootViewController(animated: true)
     }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 
