@@ -24,7 +24,13 @@ class Constants {
         "When something dies is the greatest teaching",
         "In the zazen posture, your mind and body have great power to accept things as they are, whether agreeable or disagreeable",
         "The best way is to understand yourself, and then you will understand everything",
-        "To live is enough"
+        "To live is enough",
+        "The world is its own magic",
+        "You are one with everything. That is more true than I can say, and more true than you can hear",
+        "Nothing we see or hear is perfect. But right there in the imperfection is perfect reality",
+        "The most important point is to accept yourself and stand on your two feet",
+        "The true purpose of Zen is to see things as they are, to observe things as they are, and to let everything go as it goes",
+        "You should rather be grateful for the weeds you have in your mind, because eventually they will enrich your practice"       
     ]
     
 }

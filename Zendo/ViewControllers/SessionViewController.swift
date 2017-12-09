@@ -16,6 +16,7 @@ class SessionViewController: UIViewController {
     @IBOutlet weak var quotedText: UITextView!
     
     var currentSession: Session?
+    let notifCenter = NotificationCenter.default
     
     let timeLeftShapeLayer = CAShapeLayer()
     let bgShapeLayer = CAShapeLayer()
@@ -34,6 +35,9 @@ class SessionViewController: UIViewController {
         timeLeft = Double((currentSession?.durationInSeconds)!)
         
         formFactor = FormFactor.setDeviceType()
+        notifCenter.addObserver(self, selector: #selector(self.killTimers), name: Notification.Name(rawValue: "earlyExit"), object: nil)
+        // Make sure the phone doesn't lock while the app is running.
+        UIApplication.shared.isIdleTimerDisabled = true
         
         view.backgroundColor = UIColor(white: 0.94, alpha: 1.0)
         drawBgShape()
@@ -51,9 +55,11 @@ class SessionViewController: UIViewController {
         SoundPlayer.playTestSound()
     }
     
+   
+    
     override func viewWillDisappear(_ animated: Bool) {
-        print("View will disappear!")
          timer.invalidate()
+         doneTimer.invalidate()
     }
     
     func addTimeLabel() {
@@ -101,8 +107,15 @@ class SessionViewController: UIViewController {
     
      @objc func moveOn() {
         doneTimer.invalidate()
+        UIApplication.shared.isIdleTimerDisabled = false
         let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
         navigationController.popToRootViewController(animated: true)
+    }
+    
+    @objc func killTimers() {
+        updateTime()
+        timer.invalidate()
+        doneTimer.invalidate()
     }
     
 }

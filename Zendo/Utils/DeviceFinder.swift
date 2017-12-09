@@ -35,17 +35,19 @@ struct FormFactor {
          case "iPhone 5":
             ff = FormFactor(labX: -130, labY: 195, cirX: -80, cirY: 220)
          case "iPhone 6,7,8":
-            ff = FormFactor(labX: -170, labY: 235, cirX: -120, cirY: 260)
+            ff = FormFactor(labX: -130, labY: 195, cirX: -80, cirY: 220)
+         case "iPhone SE":
+            ff = FormFactor(labX: -130, labY: 195, cirX: -80, cirY: 220)
          case "iPhone Plus":
             ff = FormFactor(labX: -180, labY: 255, cirX: -130, cirY: 280)
          case "iPhone X":
             ff = FormFactor(labX: -170, labY: 255, cirX: -120, cirY: 280)
          case "Simulator":
             // iPhone 6 for simulator
-             ff = FormFactor(labX: -170, labY: 235, cirX: -120, cirY: 260)
+              ff = FormFactor(labX: -130, labY: 195, cirX: -80, cirY: 220)
          default:
             if (UIDevice.current.modelName.contains("iPad")) {
-               ff = FormFactor(labX: -330, labY: 395, cirX: -280, cirY: 420)
+                ff = FormFactor(labX: -330, labY: 395, cirX: -280, cirY: 420)
             } else {
                 print("Mini Zendo not available for this device")
             }
@@ -68,6 +70,9 @@ public extension UIDevice {
         case "iPhone3,1", "iPhone3,2", "iPhone3,3", "iPhone4,1":
             return "iPhone 4"
             
+        case "iPhone8,4":
+            return "iPhone SE"
+            
         case "iPhone5,1", "iPhone5,2", "iPhone5,3", "iPhone5,4", "iPhone6,1", "iPhone6,2", "iPhone8,4":
             return "iPhone 5"
             
@@ -83,6 +88,9 @@ public extension UIDevice {
         case "i386", "x86_64":
             return "Simulator"
         default:
+            if (identifier.contains("iPad")) {
+                return "iPad"
+            }
             return identifier
         }
     }

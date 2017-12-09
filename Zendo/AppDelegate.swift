@@ -30,14 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = self.window!.rootViewController as!UINavigationController
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-     //   let viewControllers = navigationController.viewControllers
+        let viewControllers = navigationController.viewControllers
         
-    //    for viewController in viewControllers {
-            // if we are already on the Create page, we need to go back to the list..
-    //        if viewController.isKind(of: CreateTaskViewController.self) {
-    //            return
-    //        }
-     //   }
+       for viewController in viewControllers {
+            // if we are already on the Session page, we need to go back to the list..
+           if viewController.isKind(of: SessionViewController.self) {
+            let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
+            navigationController.popToRootViewController(animated: true)
+            }
+        }
         
         // If we don't have any items, go to new task page
         if sessionList.count == 0 { // AND the actual notification count is under 64
@@ -58,24 +59,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "earlyExit"), object: self)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-       // if (!onHelpPage) {
             switchToHelpPage()
-       // }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-       // if (!onHelpPage) {
-       //     switchToHelpPage()
-       // }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        print("Will Terminate")
     }
 
 
