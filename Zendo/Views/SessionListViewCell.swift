@@ -10,8 +10,6 @@ import UIKit
 
 class SessionListViewCell: UITableViewCell {
     
-   
-    
     @IBOutlet weak var zenImage: UIImageView!
     @IBOutlet weak var sessionLabel: UILabel!
     
@@ -25,11 +23,11 @@ class SessionListViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }
 
+// This allows us to pick a custom color
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")

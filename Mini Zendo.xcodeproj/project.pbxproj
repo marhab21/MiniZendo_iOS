@@ -16,6 +16,7 @@
 		5A407F711FD8707500C66A21 /* torii_bkg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A407F701FD8707500C66A21 /* torii_bkg.jpg */; };
 		5A44F84F1FD4CC78009691A9 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F84E1FD4CC78009691A9 /* SessionViewController.swift */; };
 		5A44F8511FD4CDAE009691A9 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F8501FD4CDAE009691A9 /* SoundPlayer.swift */; };
+		5A46C2501FDDD05700CC58EE /* sms_alert_note.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5A46C24F1FDDD05600CC58EE /* sms_alert_note.caf */; };
 		5A9E79CC1FD22B09008D5E89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79CB1FD22B09008D5E89 /* AppDelegate.swift */; };
 		5A9E79CE1FD22B09008D5E89 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E79CD1FD22B09008D5E89 /* ListViewController.swift */; };
 		5A9E79D11FD22B09008D5E89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E79CF1FD22B09008D5E89 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		5A407F701FD8707500C66A21 /* torii_bkg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = torii_bkg.jpg; sourceTree = "<group>"; };
 		5A44F84E1FD4CC78009691A9 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		5A44F8501FD4CDAE009691A9 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		5A46C24F1FDDD05600CC58EE /* sms_alert_note.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sms_alert_note.caf; sourceTree = "<group>"; };
 		5A9E79C81FD22B09008D5E89 /* Mini Zendo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini Zendo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9E79CB1FD22B09008D5E89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A9E79CD1FD22B09008D5E89 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		5A33ABD31FD4F2E30087111C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				5A46C24F1FDDD05600CC58EE /* sms_alert_note.caf */,
 				5A33ABD41FD4F3150087111C /* bell.mp3 */,
 			);
 			path = Sounds;
@@ -230,6 +233,7 @@
 				5A33ABD51FD4F3150087111C /* bell.mp3 in Resources */,
 				5A33ABD21FD4F22E0087111C /* zen.png in Resources */,
 				5A33ABD01FD4F22E0087111C /* zenLogo.png in Resources */,
+				5A46C2501FDDD05700CC58EE /* sms_alert_note.caf in Resources */,
 				5A407F711FD8707500C66A21 /* torii_bkg.jpg in Resources */,
 				5A9E79D11FD22B09008D5E89 /* Main.storyboard in Resources */,
 			);

@@ -55,6 +55,7 @@ class AddSessionViewController: UIViewController {
         }
         
         timeSetter.stylizeView()
+        timeSetter.backgroundColor = UIColor.lightGray
         
        sessionList = SessionEngine.sharedInstance.allItems()
        self.backView.backgroundColor = UIColor(netHex: 0xCBCAB7)
@@ -77,8 +78,7 @@ extension UIDatePicker {
             if let label = subview as? UILabel {
                 if let text = label.text {
                     print("UIDatePicker :: sylizeLabel :: \(text)\n")
-                    
-                    label.font = UIFont(name: "Helvetica", size: 24)!
+                    label.font = UIFont(name: "Arial", size: 18)
                 }
             } else { stylizeView(view: subview) }
         }

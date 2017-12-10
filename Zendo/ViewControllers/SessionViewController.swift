@@ -52,7 +52,7 @@ class SessionViewController: UIViewController {
         // define the future end time by adding the timeLeft to now Date()
         endTime = Date().addingTimeInterval(timeLeft)
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        SoundPlayer.playTestSound()
+        SoundPlayer.playCustomSound(name: "sms_alert_note", ext: "caf")
     }
     
    
@@ -96,7 +96,7 @@ class SessionViewController: UIViewController {
             timeLeft = endTime?.timeIntervalSinceNow ?? 0
             timeLabel.text = timeLeft.time
         } else {
-            SoundPlayer.playCustomSound()
+            SoundPlayer.playCustomSound(name: "bell", ext: "mp3")
             
             quotedText.text = currentSession?.addMessage()
             timeLabel.text = "00:00"

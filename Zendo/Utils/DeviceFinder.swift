@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// To help move the circle where it belongs
 struct FormFactor {
     var labelX, labelY: CGFloat
     var circleX, circleY: CGFloat
@@ -26,7 +26,7 @@ struct FormFactor {
         circleY = cirY
     }
 
-    
+    // Setting up the measurements for the circle.
     static func setDeviceType() -> FormFactor {
         
         var ff = FormFactor()
@@ -47,7 +47,7 @@ struct FormFactor {
               ff = FormFactor(labX: -130, labY: 195, cirX: -80, cirY: 220)
          default:
             if (UIDevice.current.modelName.contains("iPad")) {
-                ff = FormFactor(labX: -330, labY: 395, cirX: -280, cirY: 420)
+                 ff = FormFactor(labX: -130, labY: 195, cirX: -80, cirY: 220)
             } else {
                 print("Mini Zendo not available for this device")
             }
@@ -56,6 +56,7 @@ struct FormFactor {
     }
 }
 
+// Guessing the device type
 public extension UIDevice {
     var modelName: String {
         var systemInfo = utsname()

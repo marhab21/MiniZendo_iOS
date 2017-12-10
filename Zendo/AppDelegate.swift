@@ -13,16 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var onHelpPage = false
+    let notifCenter = NotificationCenter.default
+    
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        notifCenter.addObserver(self, selector: #selector(self.switchToHelpPage), name: Notification.Name(rawValue: "getHelpPage"), object: nil)
         // Override point for customization after application launch.
         switchToHelpPage()
         return true
     }
     
     // If we have nothing in the list of tasks, show the CreateTaskPage.
-    func switchToHelpPage()
+    @objc func switchToHelpPage()
     {
         // Collect our nag tasks
         let sessionList = SessionEngine.sharedInstance.allItems()
