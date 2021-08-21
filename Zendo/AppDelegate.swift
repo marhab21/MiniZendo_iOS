@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         notifCenter.addObserver(self, selector: #selector(self.switchToHelpPage), name: Notification.Name(rawValue: "getHelpPage"), object: nil)
         // Override point for customization after application launch.
         switchToHelpPage()

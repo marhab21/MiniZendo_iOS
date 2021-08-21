@@ -21,7 +21,7 @@ class Utility {
     static func showAlertBox(_ alert: String, msg: String, view: UIViewController, move: Bool = false) {
         
         let actionMsg = "OK"
-        let moveOnAction = UIAlertAction(title: actionMsg, style: UIAlertActionStyle.default) {
+        let moveOnAction = UIAlertAction(title: actionMsg, style: UIAlertAction.Style.default) {
             UIAlertAction in
             if move {
                 let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
@@ -30,7 +30,7 @@ class Utility {
             
         }
         
-        let alert = UIAlertController(title: alert, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: alert, message: msg, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(moveOnAction)
         DispatchQueue.main.async {
             view.parent?.present(alert, animated: true, completion: nil)
@@ -41,7 +41,7 @@ class Utility {
     static func userReallyWantsThis(_ alert: String, msg: String, view: UIViewController, actionNO: UIAlertAction, actionOK: UIAlertAction){
         
         
-        let refreshAlert = UIAlertController(title: alert, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let refreshAlert = UIAlertController(title: alert, message: msg, preferredStyle: UIAlertController.Style.alert)
         
         refreshAlert.addAction(actionNO)
         refreshAlert.addAction(actionOK)

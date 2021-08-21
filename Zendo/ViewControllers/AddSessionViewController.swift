@@ -47,7 +47,7 @@ class AddSessionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       timeSetter.datePickerMode = UIDatePickerMode.countDownTimer
+       timeSetter.datePickerMode = UIDatePicker.Mode.countDownTimer
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
         if let date = dateFormatter.date(from: "0:10") {
