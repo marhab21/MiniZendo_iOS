@@ -24,7 +24,7 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.listView.separatorStyle = UITableViewCellSeparatorStyle.none
+        self.listView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.listView.rowHeight = 80.0
         self.listView.backgroundColor = UIColor(netHex: 0xCBCAB7)
      
@@ -65,7 +65,7 @@ class ListViewController: UITableViewController {
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,16 +100,16 @@ class ListViewController: UITableViewController {
     }
     
     // Handle the swipe right on a row
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         let possibleDelete = sessionList[(indexPath as NSIndexPath).row]
         
         if editingStyle == .delete { // The only editing style we'll support here
             
-            let cancelAction = UIAlertAction(title: AlertMessages.noPrompt, style: UIAlertActionStyle.cancel, handler: {(a) -> Void in
+            let cancelAction = UIAlertAction(title: AlertMessages.noPrompt, style: UIAlertAction.Style.cancel, handler: {(a) -> Void in
                 // User tapped "Cancel", so do nothing
             })
-            let confirmAction = UIAlertAction(title: AlertMessages.yesPrompt, style: UIAlertActionStyle.destructive, handler: { (a) -> Void in
+            let confirmAction = UIAlertAction(title: AlertMessages.yesPrompt, style: UIAlertAction.Style.destructive, handler: { (a) -> Void in
                 // User said "Yes", go ahead and delete.
                 self.deleteForever(indexPath)
             })

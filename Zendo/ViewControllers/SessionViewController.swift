@@ -73,7 +73,7 @@ class SessionViewController: UIViewController {
     func drawBgShape() {
         bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX + formFactor.circleX , y: view.frame.midY + formFactor.circleY), radius:
             50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
-        bgShapeLayer.strokeColor = UIColor.white.cgColor
+        bgShapeLayer.strokeColor = UIColor.darkGray.cgColor
         bgShapeLayer.fillColor = UIColor.clear.cgColor
         bgShapeLayer.lineWidth = 15
         view.layer.addSublayer(bgShapeLayer)
@@ -83,8 +83,8 @@ class SessionViewController: UIViewController {
     func drawTimeLeftShape() {
         timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX + formFactor.circleX , y: view.frame.midY + formFactor.circleY), radius:
             50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
-        // timeLeftShapeLayer.strokeColor = UIColor.red.cgColor
-        timeLeftShapeLayer.strokeColor = UIColor.gray.cgColor
+      
+        timeLeftShapeLayer.strokeColor = UIColor(netHex: 0x339966).cgColor
         timeLeftShapeLayer.fillColor = UIColor.clear.cgColor
         timeLeftShapeLayer.lineWidth = 15
         view.layer.addSublayer(timeLeftShapeLayer)
