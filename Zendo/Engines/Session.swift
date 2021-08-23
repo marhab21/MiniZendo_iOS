@@ -57,7 +57,7 @@ class Session {
     func addMessage() -> String {
         
         let total = Constants.msgGeneric.count
-        let index = Int(arc4random_uniform(UInt32(total)))
+        let index = Int(arc4random_uniform(UInt32(total - 1)))
         return Constants.msgGeneric[index]
     }
     

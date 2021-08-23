@@ -99,9 +99,10 @@ class SessionViewController: UIViewController {
             SoundPlayer.playCustomSound(name: "bell", ext: "mp3")
             
             quotedText.text = currentSession?.addMessage()
+          //  Utility.showAlertBox(AlertMessages.duplicateTime, msg: currentSession?.addMessage() ?? "This is Zen", view: self)
             timeLabel.text = "00:00"
             timer.invalidate()
-            doneTimer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(moveOn), userInfo: nil, repeats: false)
+            doneTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(moveOn), userInfo: nil, repeats: false)
         }
     }
     

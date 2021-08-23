@@ -33,8 +33,8 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQI-jk-XfP">
-                                            <rect key="frame" x="83" y="9" width="221" height="26"/>
-                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                            <rect key="frame" x="83" y="4.5" width="221" height="35"/>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="29"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -157,10 +157,11 @@ You can delete a session by swiping left</string>
                             <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="narrows.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="yPZ-uH-gSM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBf-OD-IIX">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.55000000000000004" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBf-OD-IIX">
                                 <rect key="frame" x="44" y="55" width="232" height="197"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Palatino-BoldItalic" family="Palatino" pointSize="28"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="32"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -284,7 +285,7 @@ You can delete a session by swiping left</string>
     </scenes>
     <resources>
         <image name="narrows.jpg" width="1028" height="1370"/>
-        <image name="torii_bkg.jpg" width="936" height="936"/>
+        <image name="torii_bkg.jpg" width="328.79998779296875" height="328.79998779296875"/>
         <image name="zen.png" width="76" height="76"/>
     </resources>
 </document>
