@@ -30,7 +30,10 @@ class Constants {
         "Nothing we see or hear is perfect. But right there in the imperfection is perfect reality",
         "The most important point is to accept yourself and stand on your two feet",
         "The true purpose of Zen is to see things as they are, to observe things as they are, and to let everything go as it goes",
-        "You should rather be grateful for the weeds you have in your mind, because eventually they will enrich your practice"       
+        "You should rather be grateful for the weeds you have in your mind, because eventually they will enrich your practice",
+        "Life is not as serious as the mind makes it out to be",
+        "The only Zen you find at the top of the mountain is the Zen you bring with you",
+        "Whatever the present moment contains, accept it as if you had chosen it"
     ]
     
 }
