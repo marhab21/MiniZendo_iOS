@@ -33,7 +33,16 @@ class Constants {
         "You should rather be grateful for the weeds you have in your mind, because eventually they will enrich your practice",
         "Life is not as serious as the mind makes it out to be",
         "The only Zen you find at the top of the mountain is the Zen you bring with you",
-        "Whatever the present moment contains, accept it as if you had chosen it"
+        "Whatever the present moment contains, accept it as if you had chosen it",
+        "When the restrictions you have do not limit you, this is what we mean by practice",
+        "Whether or not you have a problem in your life depends upon your own attitude, your own understanding",
+        "Moment after moment, everyone comes out from nothingness. This is the true joy of life",
+        "Each one of us must make one's own true way, and when we do, that way will express the universal way",
+        "Waves are the practice of the water",
+        "In the beginner's mind there are many possibilities, but in the expert's mind there are few",
+        "Do not be too interested in Zen",
+        "Reality cannot be caught by the thinking or feeling mind"
+        
     ]
     
 }
