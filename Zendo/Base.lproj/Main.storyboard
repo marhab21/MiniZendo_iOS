@@ -119,14 +119,25 @@ You can delete a session by swiping left</string>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                         </variation>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silent mode off, Volume to taste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkI-tG-n85">
+                                        <rect key="frame" x="37.5" y="264" width="245" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="245" id="Ujg-yb-JQb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.79607843137254897" green="0.792156862745098" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="GOG-0L-zxw" firstAttribute="top" secondItem="MkI-tG-n85" secondAttribute="bottom" constant="8" id="5MP-Rd-PJl"/>
                                     <constraint firstItem="GOG-0L-zxw" firstAttribute="leading" secondItem="OkB-a3-OPp" secondAttribute="leading" constant="95" id="9kv-Zt-FGR"/>
                                     <constraint firstItem="hrK-wH-5an" firstAttribute="leading" secondItem="OkB-a3-OPp" secondAttribute="leading" constant="16" id="HsM-gG-nJa"/>
                                     <constraint firstItem="GOG-0L-zxw" firstAttribute="top" secondItem="hrK-wH-5an" secondAttribute="bottom" constant="13" id="TYg-lq-BRB"/>
                                     <constraint firstItem="nDJ-OZ-vam" firstAttribute="centerX" secondItem="hrK-wH-5an" secondAttribute="centerX" id="bsf-uO-Kt2"/>
                                     <constraint firstItem="hrK-wH-5an" firstAttribute="top" secondItem="nDJ-OZ-vam" secondAttribute="bottom" constant="8" symbolic="YES" id="cut-Np-NDw"/>
+                                    <constraint firstItem="MkI-tG-n85" firstAttribute="centerX" secondItem="OkB-a3-OPp" secondAttribute="centerX" id="hiq-KF-j3f"/>
                                     <constraint firstItem="GOG-0L-zxw" firstAttribute="centerX" secondItem="hrK-wH-5an" secondAttribute="centerX" id="yjr-0q-bEe"/>
                                     <constraint firstItem="hrK-wH-5an" firstAttribute="centerX" secondItem="OkB-a3-OPp" secondAttribute="centerX" id="zgv-my-pfa"/>
                                 </constraints>
