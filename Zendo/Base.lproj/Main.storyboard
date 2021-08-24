@@ -97,6 +97,9 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="1" green="0.2024862657" blue="0.2147013462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        </variation>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrK-wH-5an">
                                         <rect key="frame" x="16" y="48" width="288" height="232"/>
@@ -161,10 +164,10 @@ You can delete a session by swiping left</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.55000000000000004" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBf-OD-IIX">
-                                <rect key="frame" x="44" y="55" width="232" height="197"/>
+                                <rect key="frame" x="44" y="55" width="232" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="32"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="28"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="45"/>
@@ -175,7 +178,7 @@ You can delete a session by swiping left</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LBf-OD-IIX" firstAttribute="leading" secondItem="XjG-h5-Uw0" secondAttribute="leading" constant="44" id="4Za-oy-vLs"/>
-                            <constraint firstItem="XjG-h5-Uw0" firstAttribute="bottom" secondItem="LBf-OD-IIX" secondAttribute="bottom" constant="228" id="5oc-Ie-UxK"/>
+                            <constraint firstItem="XjG-h5-Uw0" firstAttribute="bottom" secondItem="LBf-OD-IIX" secondAttribute="bottom" constant="125" id="5oc-Ie-UxK"/>
                             <constraint firstItem="yPZ-uH-gSM" firstAttribute="leading" secondItem="XjG-h5-Uw0" secondAttribute="leading" id="E91-hO-NvU"/>
                             <constraint firstItem="LBf-OD-IIX" firstAttribute="top" secondItem="XjG-h5-Uw0" secondAttribute="top" constant="11" id="ESl-Ie-bgO"/>
                             <constraint firstItem="yPZ-uH-gSM" firstAttribute="bottom" secondItem="XjG-h5-Uw0" secondAttribute="bottom" id="F0s-Aj-JRl"/>
