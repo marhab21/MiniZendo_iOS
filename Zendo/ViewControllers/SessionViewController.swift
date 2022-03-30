@@ -38,17 +38,18 @@ class SessionViewController: UIViewController {
         notifCenter.addObserver(self, selector: #selector(self.killTimers), name: Notification.Name(rawValue: "earlyExit"), object: nil)
         // Make sure the phone doesn't lock while the app is running.
         UIApplication.shared.isIdleTimerDisabled = true
-        
+
         view.backgroundColor = UIColor(white: 0.94, alpha: 1.0)
         drawBgShape()
         drawTimeLeftShape()
         addTimeLabel()
         // here you define the fromValue, toValue and duration of your animation
-        strokeIt.fromValue = 0
-        strokeIt.toValue = 1
+        strokeIt.fromValue = 1
+        strokeIt.toValue = 0
         strokeIt.duration = timeLeft
-        // add the animation to your timeLeftShapeLayer
-        timeLeftShapeLayer.add(strokeIt, forKey: nil)
+        // add the animation to your bgShapeLayer
+        bgShapeLayer.add(strokeIt, forKey: nil)
+
         // define the future end time by adding the timeLeft to now Date()
         endTime = Date().addingTimeInterval(timeLeft)
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
@@ -67,14 +68,18 @@ class SessionViewController: UIViewController {
         timeLabel = UILabel(frame: CGRect(x: view.frame.midX + formFactor.labelX ,y: view.frame.midY + formFactor.labelY, width: 100, height: 50))
         timeLabel.textAlignment = .center
         timeLabel.text = timeLeft.time
+        timeLabel.textColor = UIColor.white
+        timeLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        timeLabel.adjustsFontSizeToFitWidth = true
         view.addSubview(timeLabel)
     }
     
     func drawBgShape() {
+
         bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX + formFactor.circleX , y: view.frame.midY + formFactor.circleY), radius:
-            50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
-        bgShapeLayer.strokeColor = UIColor.black.cgColor
+        50, startAngle: 270.degreesToRadians, endAngle: -90.degreesToRadians, clockwise: false).cgPath
         bgShapeLayer.fillColor = UIColor.clear.cgColor
+        bgShapeLayer.strokeColor = UIColor(netHex: 0x339966).cgColor
         bgShapeLayer.lineWidth = 15
         view.layer.addSublayer(bgShapeLayer)
     }
@@ -82,10 +87,9 @@ class SessionViewController: UIViewController {
     
     func drawTimeLeftShape() {
         timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX + formFactor.circleX , y: view.frame.midY + formFactor.circleY), radius:
-            50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
-      
-        timeLeftShapeLayer.strokeColor = UIColor(netHex: 0x339966).cgColor
+             50, startAngle: 279.degreesToRadians, endAngle: -90.degreesToRadians, clockwise: false).cgPath
         timeLeftShapeLayer.fillColor = UIColor.clear.cgColor
+      timeLeftShapeLayer.strokeColor = UIColor.clear.cgColor
         timeLeftShapeLayer.lineWidth = 15
         view.layer.addSublayer(timeLeftShapeLayer)
     }
@@ -100,6 +104,9 @@ class SessionViewController: UIViewController {
             
             quotedText.text = currentSession?.addMessage()
             timeLabel.text = "00:00"
+            timeLabel.isHidden = true
+            timeLeftShapeLayer.isHidden = true
+            bgShapeLayer.isHidden = true
             timer.invalidate()
             doneTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(moveOn), userInfo: nil, repeats: false)
         }
