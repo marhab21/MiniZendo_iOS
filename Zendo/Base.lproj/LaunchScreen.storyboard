@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina3_5" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,27 +13,39 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MINI ZENDO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39T-xa-nkL">
-                                <rect key="frame" x="81.5" y="17" width="157" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="MINI ZENDO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39T-xa-nkL">
+                                <rect key="frame" x="128.5" y="61" width="157" height="33"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="torii_bkg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OKr-Az-KMr">
-                                <rect key="frame" x="41" y="117" width="238" height="265"/>
+                                <rect key="frame" x="41" y="141" width="332" height="623"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quotes by Shunryū Suzuki and Thich Nhat Hahn" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0N-Mj-EhZ">
+                                <rect key="frame" x="41" y="779" width="327" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Qij-qU-cG6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OKr-Az-KMr" firstAttribute="top" secondItem="39T-xa-nkL" secondAttribute="bottom" constant="67" id="6Sq-hj-EUh"/>
+                            <constraint firstItem="OKr-Az-KMr" firstAttribute="top" secondItem="39T-xa-nkL" secondAttribute="bottom" constant="47" id="6Sq-hj-EUh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OKr-Az-KMr" secondAttribute="bottom" constant="98" id="6YS-mu-r5b"/>
+                            <constraint firstItem="n0N-Mj-EhZ" firstAttribute="top" secondItem="OKr-Az-KMr" secondAttribute="bottom" constant="15" id="DKi-LC-MyG"/>
                             <constraint firstItem="OKr-Az-KMr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="41" id="EhY-iV-kOJ"/>
                             <constraint firstItem="39T-xa-nkL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XCM-iu-OG9"/>
                             <constraint firstItem="OKr-Az-KMr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hWu-Lo-RFG"/>
+                            <constraint firstItem="n0N-Mj-EhZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="41" id="q0e-6j-j2b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n0N-Mj-EhZ" secondAttribute="trailing" constant="46" id="wud-Np-fYx"/>
                             <constraint firstItem="39T-xa-nkL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="yDS-fv-D11"/>
                         </constraints>
                     </view>
@@ -44,6 +56,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="torii_bkg.jpg" width="936" height="936"/>
+        <image name="torii_bkg.jpg" width="328.79998779296875" height="328.79998779296875"/>
     </resources>
 </document>

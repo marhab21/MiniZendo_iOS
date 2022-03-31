@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q7n-mP-WHW">
-    <device id="retina3_5" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q7n-mP-WHW">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,19 +13,19 @@
             <objects>
                 <tableViewController title="Session List" id="81U-Dh-N3d" customClass="ListViewController" customModule="Mini_Zendo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="9" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pzb-r9-u9B">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sessionCell" id="bY5-i0-jFE" customClass="SessionListViewCell" customModule="Mini_Zendo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="320" height="43.5"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bY5-i0-jFE" id="7IH-CX-Ik9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zen.png" translatesAutoresizingMaskIntoConstraints="NO" id="9ca-OL-CbD">
-                                            <rect key="frame" x="16" y="-3.5" width="59" height="50.5"/>
+                                            <rect key="frame" x="16" y="-3.3333333333333321" width="59" height="50.333333333333329"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="UTA-iL-hZ6"/>
                                                 <constraint firstAttribute="height" constant="50" id="cNe-0R-5HT"/>
@@ -33,7 +33,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQI-jk-XfP">
-                                            <rect key="frame" x="83" y="4.5" width="221" height="35"/>
+                                            <rect key="frame" x="83" y="4.3333333333333321" width="287" height="35"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="29"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -80,20 +80,20 @@
             <objects>
                 <viewController restorationIdentifier="HelpView" storyboardIdentifier="HelpView" id="1sb-iC-S2z" customClass="HelpViewController" customModule="Mini_Zendo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qR3-J6-3Cx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OkB-a3-OPp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zen.png" translatesAutoresizingMaskIntoConstraints="NO" id="GOG-0L-zxw">
-                                        <rect key="frame" x="95" y="293" width="130" height="128"/>
+                                        <rect key="frame" x="95" y="337" width="200" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="s1p-Sb-HzY"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Mini Zendo!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDJ-OZ-vam">
-                                        <rect key="frame" x="57" y="18" width="206" height="22"/>
+                                        <rect key="frame" x="92" y="62.333333333333336" width="206" height="21.666666666666664"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <color key="textColor" red="1" green="0.2024862657" blue="0.2147013462" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                                         </variation>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrK-wH-5an">
-                                        <rect key="frame" x="16" y="48" width="288" height="232"/>
+                                        <rect key="frame" x="16" y="92" width="358" height="232"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="232" id="gWn-UP-FFh"/>
                                         </constraints>
@@ -120,7 +120,7 @@ You can delete a session by swiping left</string>
                                         </variation>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Silent mode off, Volume to taste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkI-tG-n85">
-                                        <rect key="frame" x="37.5" y="264" width="245" height="21"/>
+                                        <rect key="frame" x="72.666666666666686" y="308" width="245" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="245" id="Ujg-yb-JQb"/>
                                         </constraints>
@@ -163,19 +163,19 @@ You can delete a session by swiping left</string>
             </objects>
             <point key="canvasLocation" x="-928.125" y="753.75"/>
         </scene>
-        <!--Session-->
+        <!--Zazen Time...-->
         <scene sceneID="2bK-3x-fcB">
             <objects>
-                <viewController title="Session" id="B3a-iP-75Y" customClass="SessionViewController" customModule="Mini_Zendo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Zazen Time..." id="B3a-iP-75Y" customClass="SessionViewController" customModule="Mini_Zendo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xbl-CW-P9D">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="narrows.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="yPZ-uH-gSM">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.55000000000000004" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBf-OD-IIX">
-                                <rect key="frame" x="44" y="55" width="232" height="300"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBf-OD-IIX">
+                                <rect key="frame" x="44" y="99" width="302" height="586"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="28"/>
@@ -211,20 +211,20 @@ You can delete a session by swiping left</string>
             <objects>
                 <viewController id="39g-Kr-GfF" customClass="AddSessionViewController" customModule="Mini_Zendo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pH8-Ct-BW7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5L6-2h-SE4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Sitting Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-RV-WtI">
-                                        <rect key="frame" x="89" y="96" width="142" height="21"/>
+                                        <rect key="frame" x="124" y="96" width="142" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCK-Rp-lAV">
-                                        <rect key="frame" x="34" y="302" width="252" height="39"/>
+                                        <rect key="frame" x="34" y="302" width="322" height="39"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="39" id="mej-IJ-3ED"/>
@@ -238,14 +238,14 @@ You can delete a session by swiping left</string>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="torii_bkg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LEz-Pw-ZoA">
-                                        <rect key="frame" x="101.5" y="366" width="117" height="113"/>
+                                        <rect key="frame" x="136.66666666666666" y="366" width="117" height="113"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="117" id="OwP-I2-kle"/>
                                             <constraint firstAttribute="height" constant="113" id="jGx-yR-TZl"/>
                                         </constraints>
                                     </imageView>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7xu-Pn-BEK">
-                                        <rect key="frame" x="0.0" y="125" width="320" height="155"/>
+                                        <rect key="frame" x="0.0" y="125" width="390" height="155"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="155" id="yN4-M3-XTx"/>
                                         </constraints>
@@ -291,8 +291,12 @@ You can delete a session by swiping left</string>
             <objects>
                 <navigationController id="q7n-mP-WHW" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wEi-cE-vzP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="81U-Dh-N3d" kind="relationship" relationship="rootViewController" id="VcK-zQ-6yv"/>

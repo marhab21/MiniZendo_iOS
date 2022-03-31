@@ -34,9 +34,7 @@ class SessionEngine {
         let items = Array(sessionDictionary.values)
         
         return items.map({Session(durationInSeconds:($0 as! NSObject).value(forKey:"duration") as! Int, UUID: ($0 as! NSObject).value(forKey:"UUID") as! String)}).sorted(by: < )
-         //   NSObject).value(forKey:"UUID") as! String)}).sorted(by: {(left: Session, right:Session) -> Bool in
-               // (left.durationInSeconds < right.durationInSeconds) == .orderedAscending)
-      //  })
+         
     }
     
     func addItem(_ item: Session) {
