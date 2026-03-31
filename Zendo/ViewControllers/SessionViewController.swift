@@ -46,9 +46,10 @@ struct SessionTimerView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .onAppear(perform: startSession)
         .onDisappear(perform: cleanup)
-        .onChange(of: scenePhase) { newPhase in
+        .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .background {
                 cleanup()
                 dismiss()

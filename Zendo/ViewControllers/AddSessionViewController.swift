@@ -25,7 +25,7 @@ struct AddSessionView: View {
                 .frame(maxWidth: .infinity)
 
                 Picker("Minutes", selection: $minutes) {
-                    ForEach(0..<60, id: \.self) { m in
+                    ForEach(1..<60, id: \.self) { m in
                         Text("\(m) min").fontWeight(.bold).tag(m)
                     }
                 }
