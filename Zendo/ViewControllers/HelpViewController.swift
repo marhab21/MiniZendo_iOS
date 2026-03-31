@@ -1,38 +1,69 @@
-//
-//  HelpViewController.swift
-//  Mini Zendo
-//
-//  Created by Martine Habib on 12/6/17.
-//  Copyright © 2017 NagTime. All rights reserved.
-//
+import SwiftUI
 
-import UIKit
+struct HelpView: View {
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                HStack {
+                    Spacer()
+                    EnsoView(size: 80)
+                    Spacer()
+                }
+                .padding(.top, 20)
 
-class HelpViewController: UIViewController {
-    
-    
-    @IBOutlet weak var helpText: UITextView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+                Text("Welcome to\nMini Zendo")
+                    .font(.system(size: 32, weight: .bold))
 
-       self.helpText.backgroundColor = UIColor(netHex: 0xCBCAB7)
+                Text("A simple meditation timer for your practice.")
+                    .font(.system(size: 18))
+                    .foregroundStyle(.secondary)
+
+                VStack(alignment: .leading, spacing: 20) {
+                    helpItem(
+                        icon: "plus.circle.fill",
+                        title: "Create a Session",
+                        description: "Tap the + button to add a new meditation timer with your preferred duration."
+                    )
+
+                    helpItem(
+                        icon: "play.circle.fill",
+                        title: "Start Meditating",
+                        description: "Tap any session from your list to begin. A circular timer will track your progress."
+                    )
+
+                    helpItem(
+                        icon: "bell.fill",
+                        title: "Session Complete",
+                        description: "A bell sounds when your session ends, followed by an inspiring Zen quote."
+                    )
+
+                    helpItem(
+                        icon: "hand.draw.fill",
+                        title: "Remove Sessions",
+                        description: "Swipe left on any session to remove it from your list."
+                    )
+                }
+                .padding(.top, 8)
+            }
+            .padding(30)
+        }
+        .background(Color.zendoBackground.ignoresSafeArea())
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func helpItem(icon: String, title: String, description: String) -> some View {
+        HStack(alignment: .top, spacing: 16) {
+            Image(systemName: icon)
+                .font(.title2)
+                .foregroundStyle(.black)
+                .frame(width: 32)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.system(size: 17, weight: .semibold))
+                Text(description)
+                    .font(.system(size: 15))
+                    .foregroundStyle(.secondary)
+            }
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

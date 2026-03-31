@@ -1,146 +1,86 @@
-//
-//  ViewController.swift
-//  Zendo
-//
-//  Created by Martine Habib on 12/1/17.
-//  Copyright © 2017 NagTime. All rights reserved.
-//
+import SwiftUI
 
-import UIKit
+struct SessionListView: View {
+    @EnvironmentObject var store: SessionStore
+    @State private var sessionToDelete: Session?
+    @State private var sessionToStart: Session?
+    @State private var showingZenAlert = false
+    @State private var navigateToTimer = false
 
-class ListViewController: UITableViewController {
-    
-    let notifCenter = NotificationCenter.default
-    var sessionList: [Session] = []
-    
-    var selectedSession: Session?
-    
-    var selectedRow = -1
-    
-    
-    @IBOutlet weak var helpView: UITextView!
-    @IBOutlet var listView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.listView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        self.listView.rowHeight = 80.0
-        self.listView.backgroundColor = UIColor(netHex: 0xCBCAB7)
-     
-         notifCenter.addObserver(self, selector: #selector(self.refreshList), name: Notification.Name(rawValue: "listShouldRefresh"), object: nil)
-        
-        sessionList = SessionEngine.sharedInstance.allItems()
-        var labels:[String] = []
-        if (sessionList.count > 0) {
-            for session in sessionList {
-                labels.append(session.title)
-            }
-            
-            for i in 0...SessionEngine.sharedInstance.allItems().count {
-                sessionList.append(sessionList[i])
-            }
-        }
-    }
+    var body: some View {
+        List {
+            ForEach(store.sessions) { session in
+                Button {
+                    sessionToStart = session
+                    showingZenAlert = true
+                } label: {
+                    HStack(spacing: 20) {
+                        if let img = UIImage(named: "zen.png") {
+                            Image(uiImage: img)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 55, height: 55)
+                        }
 
-    // Reload upon return to the list without reload
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        refreshList()
-        
-    }
+                        Text(session.title)
+                            .font(.system(size: 30, weight: .bold))
+                            .foregroundStyle(.black)
 
-    @objc func refreshList() {
-        sessionList = SessionEngine.sharedInstance.allItems()
-        listView.reloadData()
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-          return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sessionList.count
-    }
-    
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = listView.dequeueReusableCell(withIdentifier: "sessionCell") as! SessionListViewCell
-    
-        let text = sessionList[indexPath.row].title
-        
-        cell.sessionLabel.text = text
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        cell.backgroundColor = UIColor.clear
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        selectedRow = (indexPath as NSIndexPath).row
-        selectedSession = sessionList[(indexPath as NSIndexPath).row] as Session
-        
-        return indexPath
-    }
-    
-    // Delete from everywhere, everything about this particular task (action for "confirmAction" below)
-    func deleteForever (_ index: IndexPath) {
-        // Delete the row from the data source
-        let sessionToDelete = sessionList.remove(at: (index as NSIndexPath).row) // remove task from notifications array, assign removed item to 'item'
-        listView.deleteRows(at: [index], with: .fade)
-        SessionEngine.sharedInstance.removeItem(sessionToDelete, alertType: UserAlertType.delete) // delete backing property list entry and unschedule local notification if still exists
-        self.navigationItem.rightBarButtonItem!.isEnabled = true // Make sure add button is enabled.
-    }
-    
-    // Handle the swipe right on a row
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        let possibleDelete = sessionList[(indexPath as NSIndexPath).row]
-        
-        if editingStyle == .delete { // The only editing style we'll support here
-            
-            let cancelAction = UIAlertAction(title: AlertMessages.noPrompt, style: UIAlertAction.Style.cancel, handler: {(a) -> Void in
-                // User tapped "Cancel", so do nothing
-            })
-            let confirmAction = UIAlertAction(title: AlertMessages.yesPrompt, style: UIAlertAction.Style.destructive, handler: { (a) -> Void in
-                // User said "Yes", go ahead and delete.
-                self.deleteForever(indexPath)
-            })
-            
-            Utility.userReallyWantsThis("Deleting \"\(possibleDelete.title)\" ", msg: AlertMessages.deletePrompt, view: self, actionNO: cancelAction, actionOK: confirmAction)
-        }
-    }
-    
- 
-    
-    // We are changing page, let's set our current task
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if sessionList.count > 0 {
-            if segue.identifier == "StartSessionSegue" {
-                let destViewController: SessionViewController = segue.destination as! SessionViewController
-                if selectedRow >= 0 { // We could have come from a notification, and there is no selected row
-                    selectedSession = sessionList[selectedRow] as Session
-                    destViewController.currentSession = selectedSession
+                        Spacer()
+
+                        Image(systemName: "chevron.right")
+                            .foregroundStyle(.gray)
+                    }
+                    .padding(.vertical, 16)
                 }
-            } else {
-                // TODO: Go instead to the create new session.
-                selectedSession = nil
+                .listRowBackground(Color.zendoBackground)
+                .listRowSeparator(.hidden)
+            }
+            .onDelete { indexSet in
+                if let index = indexSet.first {
+                    sessionToDelete = store.sessions[index]
+                }
+            }
+        }
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .background(Color.zendoBackground)
+        .navigationDestination(isPresented: $navigateToTimer) {
+            if let session = sessionToStart {
+                SessionTimerView(session: session)
+            }
+        }
+        .alert(
+            "Entering Zen Time",
+            isPresented: $showingZenAlert
+        ) {
+            Button("Cancel", role: .cancel) {
+                sessionToStart = nil
+            }
+            Button("OK") {
+                navigateToTimer = true
+            }
+        } message: {
+            Text("You are entering Zen time. Interference from the outside world will be diminished. You can also choose to set Do Not Disturb, for absolute stillness.")
+        }
+        .alert(
+            "Delete Session",
+            isPresented: Binding(
+                get: { sessionToDelete != nil },
+                set: { if !$0 { sessionToDelete = nil } }
+            )
+        ) {
+            Button("No", role: .cancel) { sessionToDelete = nil }
+            Button("Yes", role: .destructive) {
+                if let session = sessionToDelete {
+                    store.remove(session)
+                }
+                sessionToDelete = nil
+            }
+        } message: {
+            if let session = sessionToDelete {
+                Text("Delete \"\(session.title)\"? \(AlertMessages.deletePrompt)")
             }
         }
     }
-
 }
-
-extension Notification.Name {
-    static let refreshList = Notification.Name(rawValue: "listShouldRefresh")
-}
-
-

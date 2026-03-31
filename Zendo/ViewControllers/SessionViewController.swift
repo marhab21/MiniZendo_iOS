@@ -1,133 +1,165 @@
-//
-//  SessionViewController.swift
-//  Zendo
-//
-//  Created by Martine Habib on 12/3/17.
-//  Copyright © 2017 NagTime. All rights reserved.
-//
+import SwiftUI
 
-import UIKit
+struct SessionTimerView: View {
+    let session: Session
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.scenePhase) var scenePhase
 
+    @State private var timeRemaining: TimeInterval
+    @State private var endTime: Date?
+    @State private var isRunning = false
+    @State private var isFinished = false
+    @State private var quote = ""
+    @State private var progress: CGFloat = 0
 
+    init(session: Session) {
+        self.session = session
+        _timeRemaining = State(initialValue: TimeInterval(session.durationInSeconds))
+    }
 
-class SessionViewController: UIViewController {
-    
-    
-    @IBOutlet weak var quotedText: UITextView!
-    
-    var currentSession: Session?
-    let notifCenter = NotificationCenter.default
-    
-    let timeLeftShapeLayer = CAShapeLayer()
-    let bgShapeLayer = CAShapeLayer()
-    var timeLeft: TimeInterval = 60
-    var endTime: Date?
-    var timeLabel =  UILabel()
-    var timer = Timer()
-    var doneTimer = Timer()
-    var formFactor = FormFactor()
-    // here you create your basic animation object to animate the strokeEnd
-    let strokeIt = CABasicAnimation(keyPath: "strokeEnd")
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Only if the current session has come through
-        timeLeft = Double((currentSession?.durationInSeconds)!)
-        
-        formFactor = FormFactor.setDeviceType()
-        notifCenter.addObserver(self, selector: #selector(self.killTimers), name: Notification.Name(rawValue: "earlyExit"), object: nil)
-        // Make sure the phone doesn't lock while the app is running.
-        UIApplication.shared.isIdleTimerDisabled = true
-        
-        view.backgroundColor = UIColor(white: 0.94, alpha: 1.0)
-        drawBgShape()
-        drawTimeLeftShape()
-        addTimeLabel()
-        // here you define the fromValue, toValue and duration of your animation
-        strokeIt.fromValue = 0
-        strokeIt.toValue = 1
-        strokeIt.duration = timeLeft
-        // add the animation to your timeLeftShapeLayer
-        timeLeftShapeLayer.add(strokeIt, forKey: nil)
-        // define the future end time by adding the timeLeft to now Date()
-        endTime = Date().addingTimeInterval(timeLeft)
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        SoundPlayer.playCustomSound(name: "sms_alert_note", ext: "caf")
-    }
-    
-   
-    
-    override func viewWillDisappear(_ animated: Bool) {
-         timer.invalidate()
-         doneTimer.invalidate()
-    }
-    
-    func addTimeLabel() {
-        
-        timeLabel = UILabel(frame: CGRect(x: view.frame.midX + formFactor.labelX ,y: view.frame.midY + formFactor.labelY, width: 100, height: 50))
-        timeLabel.textAlignment = .center
-        timeLabel.text = timeLeft.time
-        view.addSubview(timeLabel)
-    }
-    
-    func drawBgShape() {
-        bgShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX + formFactor.circleX , y: view.frame.midY + formFactor.circleY), radius:
-            50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
-        bgShapeLayer.strokeColor = UIColor.black.cgColor
-        bgShapeLayer.fillColor = UIColor.clear.cgColor
-        bgShapeLayer.lineWidth = 15
-        view.layer.addSublayer(bgShapeLayer)
-    }
-    
-    
-    func drawTimeLeftShape() {
-        timeLeftShapeLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX + formFactor.circleX , y: view.frame.midY + formFactor.circleY), radius:
-            50, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
-      
-        timeLeftShapeLayer.strokeColor = UIColor(netHex: 0x339966).cgColor
-        timeLeftShapeLayer.fillColor = UIColor.clear.cgColor
-        timeLeftShapeLayer.lineWidth = 15
-        view.layer.addSublayer(timeLeftShapeLayer)
-    }
-    
-    
-    @objc func updateTime() {
-        if timeLeft > 0 {
-            timeLeft = endTime?.timeIntervalSinceNow ?? 0
-            timeLabel.text = timeLeft.time
-        } else {
-            SoundPlayer.playCustomSound(name: "bell", ext: "mp3")
-            
-            quotedText.text = currentSession?.addMessage()
-            timeLabel.text = "00:00"
-            timer.invalidate()
-            doneTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(moveOn), userInfo: nil, repeats: false)
+    var body: some View {
+        GeometryReader { geo in
+            ZStack {
+                if let img = UIImage(named: "narrows.jpg") {
+                    Image(uiImage: img)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: geo.size.width, height: geo.size.height)
+                        .clipped()
+                }
+
+                if isFinished {
+                    quoteOverlay
+                } else {
+                    timerOverlay
+                }
+            }
+        }
+        .ignoresSafeArea()
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                if !isFinished {
+                    Text("Zazen Time...")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundStyle(.white)
+                }
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear(perform: startSession)
+        .onDisappear(perform: cleanup)
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .background {
+                cleanup()
+                dismiss()
+            }
         }
     }
-    
-     @objc func moveOn() {
-        doneTimer.invalidate()
+
+    // MARK: - Timer Display
+
+    private var timerOverlay: some View {
+        VStack {
+            Spacer()
+            Spacer()
+
+            ZStack {
+                Circle()
+                    .stroke(Color.black.opacity(0.2), lineWidth: 18)
+                    .frame(width: 160, height: 160)
+
+                Circle()
+                    .trim(from: 0, to: progress)
+                    .stroke(
+                        Color.zendoGreen,
+                        style: StrokeStyle(lineWidth: 18, lineCap: .round)
+                    )
+                    .frame(width: 160, height: 160)
+                    .rotationEffect(.degrees(-90))
+
+                Text(timeString)
+                    .font(.system(size: 32, weight: .medium, design: .monospaced))
+                    .foregroundStyle(Color.zendoGreen)
+            }
+
+            Spacer()
+        }
+        .padding(.top, 100)
+    }
+
+    // MARK: - End Quote
+
+    private var quoteOverlay: some View {
+        VStack {
+            Spacer()
+
+            Text(quote)
+                .font(.system(size: 32, weight: .medium, design: .serif))
+                .italic()
+                .foregroundStyle(.white)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 24)
+                .shadow(color: .black.opacity(0.6), radius: 3, x: 0, y: 2)
+
+            Spacer()
+            Spacer()
+        }
+    }
+
+    // MARK: - Timer Logic
+
+    private var timeString: String {
+        let total = max(0, Int(ceil(timeRemaining)))
+        let m = total / 60
+        let s = total % 60
+        return String(format: "%02d:%02d", m, s)
+    }
+
+    private func startSession() {
+        guard !isRunning else { return }
+        UIApplication.shared.isIdleTimerDisabled = true
+        SoundPlayer.playCustomSound(name: "sms_alert_note", ext: "caf")
+
+        endTime = Date().addingTimeInterval(TimeInterval(session.durationInSeconds))
+        isRunning = true
+
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            guard let endTime else {
+                timer.invalidate()
+                return
+            }
+
+            timeRemaining = endTime.timeIntervalSinceNow
+            let totalDuration = TimeInterval(session.durationInSeconds)
+            let elapsed = totalDuration - timeRemaining
+            progress = min(CGFloat(elapsed / totalDuration), 1.0)
+
+            if timeRemaining <= 0 {
+                timer.invalidate()
+                timeRemaining = 0
+                progress = 1.0
+                finishSession()
+            }
+        }
+    }
+
+    private func finishSession() {
+        guard !isFinished else { return }
+        isFinished = true
+        SoundPlayer.playCustomSound(name: "bell", ext: "mp3")
+        withAnimation(.easeIn(duration: 0.6)) {
+            quote = session.randomQuote()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
+            cleanup()
+            dismiss()
+        }
+    }
+
+    private func cleanup() {
+        isRunning = false
+        quote = ""
         UIApplication.shared.isIdleTimerDisabled = false
-        let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
-        navigationController.popToRootViewController(animated: true)
-    }
-    
-    @objc func killTimers() {
-        updateTime()
-        timer.invalidate()
-        doneTimer.invalidate()
-    }
-    
-}
-
-extension TimeInterval {
-    var time: String {
-        return String(format:"%02d:%02d", Int(self/60),  Int(ceil(truncatingRemainder(dividingBy: 60))) )
     }
 }
-extension Int {
-    var degreesToRadians : CGFloat {
-        return CGFloat(self) * .pi / 180
-    }
-}
-

@@ -1,40 +1,22 @@
-//
-//  SoundPlayer.swift
-//  Zendo
-//
-//  Created by Martine Habib on 12/3/17.
-//  Copyright © 2017 NagTime. All rights reserved.
-//
-
-import Foundation
-import AudioToolbox
-
+import AVFoundation
 
 class SoundPlayer {
-    
-    static var customSoundId: SystemSoundID = 0
-    
-    static func playTestSound() {
-        let systemSoundId: SystemSoundID = 1313
-        AudioServicesPlaySystemSound(systemSoundId)
-    }
-    
-    static func playCustomSound(name: String, ext: String) {
-        // Play system sound with custom mp3 file
-        if let customSoundUrl = Bundle.main.url(forResource: name, withExtension: ext) {
+    private static var player: AVAudioPlayer?
 
-            AudioServicesCreateSystemSoundID(customSoundUrl as CFURL, &customSoundId)
-            AudioServicesAddSystemSoundCompletion(customSoundId, nil, nil, { (customSoundId, _) -> Void in
-                AudioServicesDisposeSystemSoundID(customSoundId)
-            }, nil)
-            
-            AudioServicesPlaySystemSound(customSoundId)
+    static func playCustomSound(name: String, ext: String) {
+        guard let url = Bundle.main.url(forResource: name, withExtension: ext) else {
+            return
+        }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            let newPlayer = try AVAudioPlayer(contentsOf: url)
+            player = newPlayer
+            newPlayer.play()
+        } catch {
+            print("SoundPlayer error: \(error)")
         }
     }
-    
-    static func deleteSound() {
-        AudioServicesDisposeSystemSoundID(customSoundId)
-    }
-    
 }
-
