@@ -45,7 +45,7 @@ struct Session: Identifiable, Comparable {
     }
 
     static func == (lhs: Session, rhs: Session) -> Bool {
-        lhs.durationInSeconds == rhs.durationInSeconds
+        lhs.id == rhs.id
     }
 
     static func < (lhs: Session, rhs: Session) -> Bool {

@@ -1,11 +1,3 @@
-//
-//  Constants.swift
-//  Zendo
-//
-//  Created by Martine Habib on 12/1/17.
-//  Copyright © 2017 NagTime. All rights reserved.
-//
-
 import Foundation
 
 class Constants {
@@ -30,7 +22,6 @@ class Constants {
         "Thanks to impermanence, everything is possible - Thich Nhat Hahn",
         "In the beginner's mind there are many possibilities, but in the expert's mind there are few - Suzuki Roshi",
         "Happiness does not come from consumption of things - Thich Nhat Hahn",
-        "Nothing we see or hear is perfect. But right there in the imperfection is perfect reality - Suzuki Roshi",
         "It is said that God has created man in his own image. But it may be that humankind has created God in the image of humankind - Thich Nhat Hahn",
         "Each of you is perfect the way you are ... and you can use a little improvement - Suzuki Roshi",
         "The most important point is to accept yourself and stand on your two feet - Suzuki Roshi",
@@ -40,34 +31,10 @@ class Constants {
         "Moment after moment, everyone comes out from nothingness. This is the true joy of life - Suzuki Roshi",
         "Whatever the present moment contains, accept it as if you had chosen it - Suzuki Roshi",
     ]
-
 }
 
 class AlertMessages {
-
-    static let invalidTime = "Invalid time"
-    static let badStartTime = "Start time must be later than now"
-    static let invalidTitle = "Title is invalid"
-    static let duplicateTitle = "Title must be unique, this is a duplicate title"
-    static let sessionDeleted = "Session Deleted!"
-    static let yourSession = "Your session "
-    static let hasBeenDeleted = "  has been deleted"
-    static let errorTitle = "Error! Sorry!"
-    static let errorAlert = "Something did not work...try again"
     static let duplicateTime = "Duplicate Session Time"
     static let noSession = "Session will not be added"
-    static let deleteTitle = "Deleting "
     static let deletePrompt = "Are you sure?"
-    static let yesPrompt = "Yes!"
-    static let noPrompt = "No"
-    static let okPrompt = "OK"
 }
-
-
-
-
-
-
-
-    
-    

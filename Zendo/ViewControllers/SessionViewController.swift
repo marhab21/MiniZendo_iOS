@@ -20,12 +20,15 @@ struct SessionTimerView: View {
     var body: some View {
         GeometryReader { geo in
             ZStack {
+                Color.black.ignoresSafeArea()
+
                 if let img = UIImage(named: "narrows.jpg") {
                     Image(uiImage: img)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: geo.size.width, height: geo.size.height)
                         .clipped()
+                        .opacity(0.8)
                 }
 
                 if isFinished {
@@ -49,7 +52,7 @@ struct SessionTimerView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear(perform: startSession)
         .onDisappear(perform: cleanup)
-        .onChange(of: scenePhase) { oldPhase, newPhase in
+        .onChange(of: scenePhase) { newPhase in
             if newPhase == .background {
                 cleanup()
                 dismiss()
@@ -125,7 +128,7 @@ struct SessionTimerView: View {
         isRunning = true
 
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            guard let endTime else {
+            guard isRunning, let endTime else {
                 timer.invalidate()
                 return
             }
@@ -146,10 +149,12 @@ struct SessionTimerView: View {
 
     private func finishSession() {
         guard !isFinished else { return }
-        isFinished = true
         SoundPlayer.playCustomSound(name: "bell", ext: "mp3")
-        withAnimation(.easeIn(duration: 0.6)) {
-            quote = session.randomQuote()
+        isFinished = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation(.easeIn(duration: 0.6)) {
+                quote = session.randomQuote()
+            }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 20) {

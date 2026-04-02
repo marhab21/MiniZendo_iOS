@@ -48,6 +48,10 @@ struct SessionListView: View {
         .navigationDestination(isPresented: $navigateToTimer) {
             if let session = sessionToStart {
                 SessionTimerView(session: session)
+                    .onDisappear {
+                        navigateToTimer = false
+                        sessionToStart = nil
+                    }
             }
         }
         .alert(
