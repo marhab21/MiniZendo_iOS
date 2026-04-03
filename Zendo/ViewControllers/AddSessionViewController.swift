@@ -3,15 +3,18 @@ import SwiftUI
 struct AddSessionView: View {
     @EnvironmentObject var store: SessionStore
     @Environment(\.dismiss) var dismiss
+    @Environment(\.horizontalSizeClass) var sizeClass
     @State private var hours = 0
     @State private var minutes = 10
     @State private var showingError = false
     @State private var errorMessage = ""
 
+    private var isRegular: Bool { sizeClass == .regular }
+
     var body: some View {
         VStack(spacing: 0) {
             Text("Set Sitting Time")
-                .font(.system(size: 22, weight: .bold))
+                .font(.system(size: isRegular ? 28 : 22, weight: .bold))
                 .padding(.top, 10)
                 .padding(.bottom, 8)
 
@@ -32,16 +35,17 @@ struct AddSessionView: View {
                 .pickerStyle(.wheel)
                 .frame(maxWidth: .infinity)
             }
-            .frame(height: 180)
-            .background(Color.gray.opacity(0.3))
+            .frame(height: isRegular ? 220 : 180)
+            .frame(maxWidth: isRegular ? 500 : .infinity)
+            .background(Color.zendoPickerBg)
 
             Button(action: saveSession) {
                 Text("SAVE")
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 18)
-                    .background(.black)
+                    .font(.system(size: isRegular ? 24 : 20, weight: .bold))
+                    .foregroundStyle(Color.zendoSaveText)
+                    .frame(maxWidth: isRegular ? 500 : .infinity)
+                    .padding(.vertical, isRegular ? 22 : 18)
+                    .background(Color.zendoSaveButton)
                     .clipShape(RoundedRectangle(cornerRadius: 6))
             }
             .padding(.horizontal, 30)
@@ -51,7 +55,7 @@ struct AddSessionView: View {
                 Image(uiImage: img)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(height: 180)
+                    .frame(height: isRegular ? 260 : 180)
                     .padding(.top, 20)
             }
 

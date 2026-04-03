@@ -21,8 +21,8 @@ struct MiniZendoApp: App {
                         NavigationLink {
                             AddSessionView()
                         } label: {
-                            Image(systemName: "plus")
-                                .font(.title3)
+                            Image(systemName: "plus.circle.fill")
+                                .font(.title)
                                 .fontWeight(.semibold)
                         }
                     }

@@ -2,10 +2,13 @@ import SwiftUI
 
 struct SessionListView: View {
     @EnvironmentObject var store: SessionStore
+    @Environment(\.horizontalSizeClass) var sizeClass
     @State private var sessionToDelete: Session?
     @State private var sessionToStart: Session?
     @State private var showingZenAlert = false
     @State private var navigateToTimer = false
+
+    private var isRegular: Bool { sizeClass == .regular }
 
     var body: some View {
         List {
@@ -14,24 +17,27 @@ struct SessionListView: View {
                     sessionToStart = session
                     showingZenAlert = true
                 } label: {
-                    HStack(spacing: 20) {
+                    HStack(spacing: isRegular ? 28 : 20) {
                         if let img = UIImage(named: "zen.png") {
                             Image(uiImage: img)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 55, height: 55)
+                                .frame(width: isRegular ? 70 : 55,
+                                       height: isRegular ? 70 : 55)
+                                .background(Color.zendoZenBg)
+                                .clipShape(RoundedRectangle(cornerRadius: 6))
                         }
 
                         Text(session.title)
-                            .font(.system(size: 30, weight: .bold))
-                            .foregroundStyle(.black)
+                            .font(.system(size: isRegular ? 36 : 30, weight: .bold))
+                            .foregroundStyle(.primary)
 
                         Spacer()
 
                         Image(systemName: "chevron.right")
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(.secondary)
                     }
-                    .padding(.vertical, 16)
+                    .padding(.vertical, isRegular ? 22 : 16)
                 }
                 .listRowBackground(Color.zendoBackground)
                 .listRowSeparator(.hidden)

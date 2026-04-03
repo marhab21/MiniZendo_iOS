@@ -4,6 +4,7 @@ struct SessionTimerView: View {
     let session: Session
     @Environment(\.dismiss) var dismiss
     @Environment(\.scenePhase) var scenePhase
+    @Environment(\.horizontalSizeClass) var sizeClass
 
     @State private var timeRemaining: TimeInterval
     @State private var endTime: Date?
@@ -11,6 +12,13 @@ struct SessionTimerView: View {
     @State private var isFinished = false
     @State private var quote = ""
     @State private var progress: CGFloat = 0
+
+    private var isRegular: Bool { sizeClass == .regular }
+    private var ringSize: CGFloat { isRegular ? 260 : 160 }
+    private var ringWidth: CGFloat { isRegular ? 24 : 18 }
+    private var timerFontSize: CGFloat { isRegular ? 48 : 32 }
+    private var quoteFontSize: CGFloat { isRegular ? 40 : 32 }
+    private var titleFontSize: CGFloat { isRegular ? 30 : 24 }
 
     init(session: Session) {
         self.session = session
@@ -43,7 +51,7 @@ struct SessionTimerView: View {
             ToolbarItem(placement: .principal) {
                 if !isFinished {
                     Text("Zazen Time...")
-                        .font(.system(size: 24, weight: .bold))
+                        .font(.system(size: titleFontSize, weight: .bold))
                         .foregroundStyle(.white)
                 }
             }
@@ -52,7 +60,7 @@ struct SessionTimerView: View {
         .navigationBarBackButtonHidden(true)
         .onAppear(perform: startSession)
         .onDisappear(perform: cleanup)
-        .onChange(of: scenePhase) { newPhase in
+        .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .background {
                 cleanup()
                 dismiss()
@@ -69,26 +77,26 @@ struct SessionTimerView: View {
 
             ZStack {
                 Circle()
-                    .stroke(Color.black.opacity(0.2), lineWidth: 18)
-                    .frame(width: 160, height: 160)
+                    .stroke(Color.black.opacity(0.2), lineWidth: ringWidth)
+                    .frame(width: ringSize, height: ringSize)
 
                 Circle()
                     .trim(from: 0, to: progress)
                     .stroke(
                         Color.zendoGreen,
-                        style: StrokeStyle(lineWidth: 18, lineCap: .round)
+                        style: StrokeStyle(lineWidth: ringWidth, lineCap: .round)
                     )
-                    .frame(width: 160, height: 160)
+                    .frame(width: ringSize, height: ringSize)
                     .rotationEffect(.degrees(-90))
 
                 Text(timeString)
-                    .font(.system(size: 32, weight: .medium, design: .monospaced))
+                    .font(.system(size: timerFontSize, weight: .medium, design: .monospaced))
                     .foregroundStyle(Color.zendoGreen)
             }
 
             Spacer()
         }
-        .padding(.top, 100)
+        .padding(.top, isRegular ? 60 : 100)
     }
 
     // MARK: - End Quote
@@ -98,11 +106,11 @@ struct SessionTimerView: View {
             Spacer()
 
             Text(quote)
-                .font(.system(size: 32, weight: .medium, design: .serif))
+                .font(.system(size: quoteFontSize, weight: .medium, design: .serif))
                 .italic()
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 24)
+                .padding(.horizontal, isRegular ? 80 : 24)
                 .shadow(color: .black.opacity(0.6), radius: 3, x: 0, y: 2)
 
             Spacer()
